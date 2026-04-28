@@ -1,0 +1,24 @@
+# Logic
+node_modules/
+dist/
+build/
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+*.joblib
+*.pkl
+
+# Project Specific
+backend/models/
+backend/data/*.csv
+
+# Docker
+.docker_data/

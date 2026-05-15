@@ -3,10 +3,12 @@ import { Zap, Target, Users, Activity, TrendingUp, ShieldCheck, ShieldAlert, Ref
 import { ResponsiveContainer, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import axios from 'axios';
 import Typewriter from './components/Typewriter';
+import { LoginPage } from './LoginPage';
 
 const API_BASE = '/api';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
     Age: 30,
     Income: 500000,
@@ -131,6 +133,10 @@ function App() {
     );
   };
 
+  if (!isLoggedIn) {
+    return <LoginPage onLogin={() => setIsLoggedIn(true)} />;
+  }
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-[#F8FAFC] text-slate-800 selection:bg-indigo-500/20 overflow-hidden">
 
@@ -138,12 +144,31 @@ function App() {
       <aside className="w-full lg:w-80 bg-[#F1F5F9] border-r border-slate-200/80 flex flex-col sticky top-0 h-screen overflow-y-auto custom-scrollbar z-20">
         <div className="p-6 border-b border-slate-200/60 bg-white">
           <div className="flex items-center gap-3 mb-2">
-            <div className="p-2.5 bg-gradient-to-br from-indigo-600 to-blue-500 rounded-xl shadow-md">
+            <div className="p-2.5 bg-gradient-to-br from-indigo-600 to-blue-500 rounded-xl shadow-md shrink-0">
               <Zap size={20} className="text-white" />
             </div>
-            <h1 className="font-extrabold text-xl tracking-tight text-slate-900">XAI <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">SENTINEL</span></h1>
+            <div>
+              <div className="leading-tight tracking-tight">
+                <span className="block text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Explainable AI</span>
+                <span className="block text-base lg:text-xl font-semibold text-slate-700 mt-0.5">Framework for</span>
+                <span className="block text-lg lg:text-2xl font-bold text-slate-900 mt-0.5">Credit Risk Prediction</span>
+              </div>
+              <div className="h-0.5 w-16 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mt-2 mb-2"></div>
+              <div className="mt-3 flex items-center gap-3 bg-white border border-slate-100/80 rounded-2xl p-4 shadow-sm hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-300 relative overflow-hidden">
+                <div className="p-[2px] rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shrink-0">
+                  <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center">
+                    <Users size={16} className="text-indigo-500" />
+                  </div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#9CA3AF] mb-0.5">Developed by</p>
+                  <p className="text-[14px] font-semibold text-[#0F172A] leading-snug">Bibhu &amp; Soumyashree</p>
+                </div>
+                <div className="absolute right-0 top-2 bottom-2 w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full opacity-60"></div>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-3">
             <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
             <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Precision Engine Active</p>
           </div>
@@ -168,7 +193,7 @@ function App() {
                     <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider ml-1">Employment Context</label>
                     <select name="EmploymentType" value={formData.EmploymentType} onChange={handleInputChange} className="w-full bg-white border border-slate-200 rounded-xl py-3 px-4 text-sm font-medium text-slate-700 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none">
                       <option value="Salaried">Salaried Professional</option>
-                      <option value="Self-Employed">Entrepreneur / Independent</option>
+                      <option value="Self-Employed">Self Employed</option>
                       <option value="Unemployed">Seeking Opportunity</option>
                     </select>
                 </div>
@@ -183,7 +208,8 @@ function App() {
                 <div className="space-y-1.5">
                     <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider ml-1">Education Level</label>
                     <select name="Education" value={formData.Education} onChange={handleInputChange} className="w-full bg-white border border-slate-200 rounded-xl py-3 px-4 text-sm font-medium text-slate-700 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none">
-                      <option value="High School">Higher Secondary</option>
+                      <option value="High School">School Level (Below Higher Secondary)</option>
+                      <option value="High School">Higher Secondary (12th Grade)</option>
                       <option value="Bachelors">Undergraduate Degree</option>
                       <option value="Masters">Postgraduate Degree</option>
                       <option value="PhD">Doctorate / Research</option>
@@ -557,17 +583,29 @@ function App() {
             </div>
           )}
 
-          {/* FOOTER */}
-          <footer className="pt-12 pb-8 border-t border-slate-100 text-center">
-              <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-2">Neural Ledger Consensus Framework</p>
-              <div className="flex justify-center gap-3 text-[9px] font-medium text-slate-300 uppercase tracking-wider select-none">
-                <span>Ensemble 3.0</span>
-                <span>&middot;</span>
-                <span>Platinum Dashboard</span>
-                <span>&middot;</span>
-                <span>XAI Engine v2.4</span>
-              </div>
-          </footer>
+           {/* FOOTER */}
+           <footer className="pt-12 pb-8 border-t border-slate-100 text-center opacity-80">
+               <p className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-widest mb-2">Neural Ledger Consensus Framework</p>
+               <div className="flex flex-wrap justify-center gap-3 text-[11px] font-medium text-[#9CA3AF] uppercase tracking-wider select-none mb-4">
+                 <span>Ensemble 3.0</span>
+                 <span>&middot;</span>
+                 <span>Platinum Dashboard</span>
+                 <span>&middot;</span>
+                 <span>XAI Engine v2.4</span>
+               </div>
+                <div className="inline-flex items-center gap-3 bg-white border border-slate-100/80 rounded-2xl px-4 py-3 shadow-sm hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-300 relative overflow-hidden">
+                  <div className="p-[2px] rounded-full bg-gradient-to-br from-blue-500 to-purple-500 shrink-0">
+                    <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center">
+                      <Users size={16} className="text-indigo-500" />
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0 text-left">
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-[#9CA3AF] mb-0.5">Developed by</p>
+                    <p className="text-[14px] font-semibold text-[#0F172A] leading-snug">Bibhu &amp; Soumyashree</p>
+                  </div>
+                  <div className="absolute right-0 top-2 bottom-2 w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full opacity-60"></div>
+                </div>
+           </footer>
         </div>
       </main>
     </div>

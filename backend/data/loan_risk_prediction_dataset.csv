@@ -1,0 +1,51 @@
+Age,Income,LoanAmount,CreditScore,YearsExperience,Gender,Education,City,EmploymentType,LoanApproved
+45,85000,20000,750,15,Male,Bachelors,New York,Salaried,1
+30,45000,15000,620,5,Female,High School,Chicago,Salaried,0
+25,35000,10000,580,2,Male,Bachelors,Houston,Unemployed,0
+35,95000,30000,810,12,Female,Masters,Los Angeles,Salaried,1
+50,120000,50000,780,25,Male,PhD,Phoenix,Self-Employed,1
+22,25000,5000,550,1,Female,High School,New York,Salaried,0
+28,40000,12000,600,4,Male,Bachelors,Chicago,Salaried,0
+42,75000,25000,720,18,Female,Bachelors,Houston,Salaried,1
+38,65000,18000,680,10,Male,Masters,Los Angeles,Salaried,1
+55,150000,40000,830,30,Female,PhD,Phoenix,Self-Employed,1
+23,30000,8000,570,2,Male,High School,New York,Salaried,0
+31,50000,20000,640,7,Female,Bachelors,Chicago,Salaried,0
+47,90000,35000,760,20,Male,Bachelors,Houston,Salaried,1
+33,55000,15000,660,9,Female,Masters,Los Angeles,Salaried,1
+40,110000,45000,790,16,Male,PhD,Phoenix,Self-Employed,1
+26,38000,10000,590,3,Female,High School,New York,Salaried,0
+29,42000,14000,610,5,Male,Bachelors,Chicago,Salaried,0
+44,80000,28000,740,20,Female,Bachelors,Houston,Salaried,1
+36,60000,17000,670,11,Male,Masters,Los Angeles,Salaried,1
+52,130000,55000,800,27,Female,PhD,Phoenix,Self-Employed,1
+24,28000,7000,560,1,Male,High School,New York,Salaried,0
+32,52000,21000,650,8,Female,Bachelors,Chicago,Salaried,0
+48,95000,38000,770,22,Male,Bachelors,Houston,Salaried,1
+34,58000,16000,675,9,Female,Masters,Los Angeles,Salaried,1
+41,115000,48000,795,17,Male,PhD,Phoenix,Self-Employed,1
+27,39000,11000,595,4,Female,High School,New York,Salaried,0
+30,48000,13000,630,6,Male,Bachelors,Chicago,Salaried,0
+45,82000,29000,745,21,Female,Bachelors,Houston,Salaried,1
+37,62000,18000,685,12,Male,Masters,Los Angeles,Salaried,1
+53,135000,58000,805,28,Female,PhD,Phoenix,Self-Employed,1
+20,20000,5000,500,0,Male,High School,New York,Unemployed,0
+21,22000,6000,510,1,Female,High School,Chicago,Unemployed,0
+46,88000,32000,755,21,Male,Bachelors,Houston,Salaried,1
+39,68000,22000,695,13,Female,Masters,Los Angeles,Salaried,1
+51,125000,52000,785,26,Male,PhD,Phoenix,Self-Employed,1
+19,15000,3000,450,0,Female,High School,New York,Unemployed,0
+22,26000,7500,540,1,Male,Bachelors,Chicago,Salaried,0
+49,100000,40000,775,23,Female,Bachelors,Houston,Salaried,1
+35,59000,15500,665,9,Male,Masters,Los Angeles,Salaried,1
+43,105000,42000,788,19,Female,PhD,Phoenix,Self-Employed,1
+25,32000,9000,575,3,Male,High School,New York,Salaried,0
+28,44000,14500,615,5,Female,Bachelors,Chicago,Salaried,0
+50,118000,46000,792,25,Male,Bachelors,Houston,Salaried,1
+32,54000,16500,655,8,Female,Masters,Los Angeles,Salaried,1
+41,112000,44000,782,18,Male,PhD,Phoenix,Self-Employed,1
+24,29000,8500,565,2,Female,High School,New York,Salaried,0
+27,41000,12500,605,4,Male,Bachelors,Chicago,Salaried,0
+46,84000,31000,748,21,Female,Bachelors,Houston,Salaried,1
+34,56000,15800,662,8,Male,Masters,Los Angeles,Salaried,1
+54,145000,62000,815,29,Female,PhD,Phoenix,Self-Employed,1
